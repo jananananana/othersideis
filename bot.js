@@ -34,7 +34,7 @@ var retweet = function() {
   });
 };
 
-tweet();
+// tweet();
 retweet();
 
 // Twitter.post('statuses/update', { status: 'Puppy test tweet' }, function(err, data, response) {
