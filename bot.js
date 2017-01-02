@@ -1,9 +1,17 @@
 var 
   twit = require('twit'),
   config = require('./config.js'),
+  utils = require('./src/utils.js'),
   Twitter = new twit(config);
 
-var retweet = function() {  
+var tweet = function() {
+  var whatToTweet = utils.myFunc();
+  Twitter.post('statuses/update', { status: whatToTweet}, function(err, data, response) {
+    console.log(data);
+  });
+};
+
+var puppyRetweet = function() {  
   var params = {
     q: '#puppies',
     //result_type: 'recent',
@@ -34,8 +42,7 @@ var retweet = function() {
   });
 };
 
-// tweet();
-retweet();
+tweet();
 
 // Twitter.post('statuses/update', { status: 'Puppy test tweet' }, function(err, data, response) {
 //   console.log(data)
